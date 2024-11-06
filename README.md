@@ -1,13 +1,13 @@
-# Visualizacion
+# 1). Visualizacion
 
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Cargar el dataset de Iris desde Seaborn
+Cargar el dataset de Iris desde Seaborn
 iris = sns.load_dataset('iris')
 
-# Gráfico de Dispersión:
+Gráfico de Dispersión:
 
 plt.figure(figsize=(10, 5))
 plt.subplot(1, 2, 1)
@@ -23,7 +23,7 @@ plt.ylabel('Petal Width')
 plt.title('Scatter Plot: Petal Length vs Petal Width')
 plt.show()
 
-# Gráfico de Distribución:
+Gráfico de Distribución:
 
 plt.figure(figsize=(10, 8))
 for i, column in enumerate(iris.columns[:-1], 1):
@@ -33,29 +33,29 @@ for i, column in enumerate(iris.columns[:-1], 1):
 plt.tight_layout()
 plt.show()
 
-# Gráfico de Pares:
+Gráfico de Pares:
 sns.pairplot(iris, hue="species", markers=["o", "s", "D"])
 plt.show()
 
-# Mapa de Calor:
-# Seleccionar solo las columnas numéricas
+Mapa de Calor:
+//Seleccionar solo las columnas numéricas
 iris_numeric = iris.select_dtypes(include=['float64', 'int64'])
 
-# Crear el mapa de calor de correlación
+//Crear el mapa de calor de correlación
 plt.figure(figsize=(8, 6))
 sns.heatmap(iris_numeric.corr(), annot=True, cmap='coolwarm', linewidths=0.5)
 plt.title('Correlation Heatmap of Iris Features')
 plt.show()
 
-Comparar la visualización de datos en Ciencia de Datos vs. Big Data usando el Dataset de Titanic
+# 2). Comparar la visualización de datos en Ciencia de Datos vs. Big Data usando el Dataset de Titanic
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Cargar el dataset de Titanic desde un archivo local
+//Cargar el dataset de Titanic desde un archivo local
 titanic = pd.read_csv('/content/Titanic.csv')
 
-# Supervivencia por Clase
+Supervivencia por Clase
 
 plt.figure(figsize=(8, 6))
 sns.countplot(x='Pclass', hue='Survived', data=titanic, palette='viridis')
@@ -65,7 +65,7 @@ plt.ylabel('Count')
 plt.legend(['Not Survived', 'Survived'])
 plt.show()
 
-# Supervivencia por Edad
+Supervivencia por Edad
 
 plt.figure(figsize=(10, 6))
 sns.histplot(titanic, x='Age', hue='Survived', kde=True, multiple='stack', palette='coolwarm')
@@ -74,7 +74,7 @@ plt.xlabel('Age')
 plt.ylabel('Count')
 plt.show()
 
-# Supervivencia por Género y Clase
+Supervivencia por Género y Clase
 
 plt.figure(figsize=(8, 6))
 sns.catplot(x="Sex", hue="Survived", col="Pclass", data=titanic, kind="count", height=4, aspect=0.7, palette="Set2")
